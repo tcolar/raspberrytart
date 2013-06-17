@@ -1,0 +1,27 @@
+
+Pianobar commands:
+
+  +    love song
+  -    ban song
+  a    add music to station
+  c    create new station
+  d    delete station
+  e    explain why this song is played
+  g    add genre station
+  h    song history
+  i    print information about song/station
+  j    add shared station
+  n    next song
+  p    pause/continue
+  q    quit
+  r    rename station
+  s    change station
+  t    tired (ban song for 1 month)
+  u    upcoming songs
+  x    select quickmix stations
+  b    bookmark song/artist
+  (    decrease volume
+  )    increase volume
+  =    delete seeds/feedback
+  v    create new station from song or artist
+
