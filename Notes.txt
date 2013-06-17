@@ -25,3 +25,6 @@ Pianobar commands:
   =    delete seeds/feedback
   v    create new station from song or artist
 
+
+http://ws.audioscrobbler.com/2.0/?method=album.search&api_key=375607b6c256c3ca12922127e6339861&format=json&album=The%20Different%20Story%20(World%20Of%20Lust%20And%20Crime)%20Schilling
+

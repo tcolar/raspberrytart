@@ -91,6 +91,10 @@ def reset():
     do_reset()
     return 'ok'
 
+#def track_info():
+#    http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=375607b6c256c3ca12922127e6339861&artist=cher&track=believe&format=json
+
+
 ### Internals ################################################################
 
 def do_reset():

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Thibaut Colar: Dumping pinaobar events to cur.txt, will be parsed by Python process
+
+echo "$@" > ~/.config/pianobar/cur.txt
+while read data
+  do echo "$data" >> ~/.config/pianobar/cur.txt
+done
+

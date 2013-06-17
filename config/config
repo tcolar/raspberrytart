@@ -1,0 +1,8 @@
+# Pandora account
+
+user = my_email@domain.com
+password = my password
+
+# Make sure to adjust this path properly (replace 'me' by your user)
+
+event_command = /home/me/.config/pianobar/eventcmd

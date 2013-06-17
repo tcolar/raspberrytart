@@ -11,7 +11,7 @@ This is a Frontend for raspberry PI that we use at work ([Rivet & Sway](http://w
 ### Requirements:
   - Python
   - Pianobar
-  - Flask & Flask-bootsrap
+  - Flask & Flask-bootstrap
 
 ### Installation:
   Install Pianobar & Flask + Flask-Bootstrap:
@@ -19,19 +19,24 @@ This is a Frontend for raspberry PI that we use at work ([Rivet & Sway](http://w
     sudo apt-get install pianobar pip
     sudo pip install flask flask-bootstrap
 
-  Create the Pianobar config file:
-
-    mkdir ~/.config/pianobar
-    echo "user = your_pandora_email@domain.com" >> ~/.config/pianobar/config
-    echo "password = your_pandora_password" >> ~/.config/pianobar/config
-
   Create the pianobar FIFO:
 
-      mkfifo ~/.config/pianobar/ctl
+    mkfifo ~/.config/pianobar/ctl
 
-  Run "pianobar" to make sure it works ('q' to quit)
+### Configuration ############################################################
+  Copy the confg files:
 
-  Once that works we can run it:
+    cp config/config ~/.config/pianobar/
+    cp config/eventcmd ~/.config/pianobar/
+    chmod +x ~/.config/pianobar/eventcmd
+
+  Edit the config file:
+  Make sure to edit your pandora email and password and the event_command path
+
+    vi ~/.config/pianobar/config
+
+### Running ##################################################################
+  Run:
 
     python music.py
 
