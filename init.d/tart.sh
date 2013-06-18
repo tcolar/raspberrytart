@@ -25,7 +25,7 @@ case "$1" in
     start)
         echo -n "Starting RaspberryTart... "
         cd $TART_HOME
-        /bin/su $USER -p -s /bin/sh -c "$PYTHON music.py" > "/tmp/tart.log" 2>&1 &
+        sudo -u $USER -H sh -c "cd $TART_HOME; $PYTHON music.py" > "/tmp/tart.log" 2>&1 &
         PID=$!
         echo $PID > "/tmp/tart.pid"
         ;;

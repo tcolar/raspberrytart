@@ -84,7 +84,7 @@ def volume(action):
 def station(id):
     app.cur_station = id
     if not app.pending_station:
-        send('s', 1)
+        send('s')
     send(id + "\n")
     app.pending_station = False
     return 'ok'
