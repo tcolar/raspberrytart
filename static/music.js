@@ -37,7 +37,7 @@ $(document).ready(function() {
 
   $(".refresh_stations").click(function(){$(location).attr('href','stations_refresh');});
 
-  $(".restart_pianobar").click(function(){$.get("volume/down");});
+  $(".restart_pianobar").click(function(){$.get("reset_pianobar");});
 
   $(".station_link").click(function(){$.get("station/" + $(this).attr('rel'));});
 
