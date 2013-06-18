@@ -19,8 +19,8 @@ Bootstrap(app)
 
 home = expanduser("~")
 app.ctl = home + './.config/pianobar/ctl'
-app.state = home + './config/pianobar/state'
-app.cur = home + './config/pianobar/cur.txt'
+app.state = home + './.config/pianobar/state'
+app.cur = home + './.config/pianobar/cur.txt'
 app.cur_data = {}
 app.pb = None
 app.cur_station = None
