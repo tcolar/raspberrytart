@@ -48,5 +48,5 @@ This is a Frontend for raspberry PI that we use at work ([Rivet & Sway](http://w
 
 ### Screenshot:
 
-![Screenshot](https://raw.github.com/tcolar/https://bitbucket.org/tcolar/raspberrytart/screenshot.png)
+![Screenshot](https://raw.github.com/tcolar/raspberrytart/screenshot.png)
 
