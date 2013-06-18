@@ -84,7 +84,7 @@ def volume(action):
 def station(id):
     app.cur_station = id
     if not app.pending_station:
-        send('s')
+        send('s', 1)
     send(id + "\n")
     app.pending_station = False
     return 'ok'
@@ -121,7 +121,7 @@ def do_reset():
             send("0\n")
             send('q')
         app.pb.kill()
-    app.pb = subprocess.Popen('pianobar', stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    app.pb = subprocess.Popen(['nohup', 'pianobar'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     fcntl.fcntl(app.pb.stdout.fileno(), fcntl.F_SETFL, os.O_NONBLOCK)
     app.pending_station = True
     app.cur_station = None
