@@ -16,7 +16,7 @@ This is a Frontend for raspberry PI that we use at work ([Rivet & Sway](http://w
 ### Installation:
   Install Pianobar & Flask + Flask-Bootstrap:
 
-    sudo apt-get install pianobar pip
+    sudo apt-get install pianobar python-pip
     sudo pip install flask flask-bootstrap
 
   Create the pianobar FIFO:

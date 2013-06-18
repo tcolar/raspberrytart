@@ -57,7 +57,7 @@ def stations_refresh():
 
 ### Called via Ajax ##########################################################
 @app.route('/music/skip')
-def pause():
+def skip():
   if app.pending_station:
       return ''
   send("n")
