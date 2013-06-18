@@ -1,8 +1,9 @@
 
 # History: Jun 14 13 Thibaut Colar Creation
 
-from flask import Flask, redirect, url_for, render_template, g
+from flask import Flask, redirect, url_for, render_template, g, jsonify
 from flask.ext.bootstrap import Bootstrap
+from datetime import datetime
 import sys
 import re
 import os
@@ -17,6 +18,8 @@ Bootstrap(app)
 
 app.ctl = os.getenv("HOME") + '/.config/pianobar/ctl'
 app.state = state = os.getenv("HOME") + '/.config/pianobar/state'
+app.cur = os.getenv("HOME") + '/.config/pianobar/cur.txt'
+app.cur_data = {}
 app.pb = None
 app.cur_station = None
 app.station_list = {}
@@ -91,8 +94,21 @@ def reset():
     do_reset()
     return 'ok'
 
-#def track_info():
-#    http://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=375607b6c256c3ca12922127e6339861&artist=cher&track=believe&format=json
+@app.route('/music/info')
+def track_info():
+    ts = os.path.getmtime(app.cur)
+    if (not 'ts' in app.cur_data) or ts > app.cur_data['ts']:
+        app.cur_data['ts'] = ts
+        with open(app.cur) as f:
+            lines = f.readlines()
+            if 'songstart' in lines[0]:
+                for line in lines:
+                    if '=' in line:
+                        (key, val) = line.split('=', 1)
+                        if key in ['artist', 'title', 'album', 'coverArt',
+                                   'detailUrl']:
+                            app.cur_data[key] = val
+    return jsonify(**app.cur_data)
 
 
 ### Internals ################################################################
