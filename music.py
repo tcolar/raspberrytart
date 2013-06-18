@@ -139,7 +139,6 @@ def send(cmd, wait = 0):
     print out
     return out
 
-
 def get_lines(until):
     app.pb.expect(until)
     return app.pb.before
@@ -149,7 +148,7 @@ def get_lines(until):
 if __name__ == '__main__':
     try:
         do_reset()
-        app.run(debug=False)
+        app.run(host='0.0.0.0', debug=False)
     except:
         traceback.print_exc()
 
