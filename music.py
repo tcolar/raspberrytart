@@ -36,9 +36,6 @@ def music():
     if not app.station_list:
         return redirect(url_for('stations_refresh'))
     return render_template('music.html', stations = app.station_list)
-#    if not app.cur_station:
-#        return redirect(url_for('stations'))
-#    return 'Cur Station: ' + app.cur_station
 
 @app.route('/music/stations_refresh')
 def stations_refresh():
@@ -51,7 +48,7 @@ def stations_refresh():
     # parse stations
     app.station_list = {}
     for line in out.split('\n'):
-        match = re.search(r".*(\d+)\)\s([qQ]\s)?(.*)", line.strip())
+        match = re.search(r"\W*(\d+)\)\s([qQ]\s)?(.*)", line.strip())
         if match:
             app.station_list[match.group(1)] = match.group(3)
     if not app.station_list:
