@@ -4,6 +4,7 @@
 from flask import Flask, redirect, url_for, render_template, g, jsonify
 from flask.ext.bootstrap import Bootstrap
 from datetime import datetime
+from os.path import expanduser
 import sys
 import re
 import os
@@ -16,9 +17,10 @@ app = Flask(__name__)
 
 Bootstrap(app)
 
-app.ctl = os.getenv("HOME") + '/.config/pianobar/ctl'
-app.state = state = os.getenv("HOME") + '/.config/pianobar/state'
-app.cur = os.getenv("HOME") + '/.config/pianobar/cur.txt'
+home = expanduser("~")
+app.ctl = home + '/.config/pianobar/ctl'
+app.state = home + '/.config/pianobar/state'
+app.cur = home + '/.config/pianobar/cur.txt'
 app.cur_data = {}
 app.pb = None
 app.cur_station = None
