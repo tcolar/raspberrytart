@@ -1,43 +1,56 @@
 {% extends "main.html" %}
-{% block content %}
 
+{% block scripts %}
+<script type="text/javascript"  src="/static/jquery.min.js"></script>
 <script type="text/javascript"  src="/static/music.js"></script>
+{{super()}}
+{% endblock %}
 
-<div class = "well span3">
+{% block styles %}
+<style>
+.well {margin: 5px}
+</style>
+{{super()}}
+{% endblock %}
+
+
+{% block content %}
+<div class = "well col-sm-3">
 <h3>Stations :</h3>
   {% for id in stations | sort %}
   <a class='station_link' href='#' rel='{{id}}'>{{stations[id]}}</a><br/>
   {% endfor %}
 </div>
-<div class = "span8">
-  <div class = "row-fluid text-center">
-    <div class = "well span3">
-      <i class="icon-play playpause" title="Play" rel="popover"></i>&nbsp;
-      <i class="icon-pause playpause" title="Pause" rel="popover"></i>&nbsp;
-      <i class="icon-step-forward skip" title="Skip song" rel="popover"></i>
+<div class = "col-sm-8">
+  <div class = "row text-center">
+    <div class = "well col-sm-3">
+      <i class="glyphicon glyphicon-play playpause" title="Play" rel="popover"></i>&nbsp;
+      <i class="glyphicon glyphicon-pause playpause" title="Pause" rel="popover"></i>&nbsp;
+      <i class="glyphicon glyphicon-step-forward skip" title="Skip song" rel="popover"></i>
     </div>
-    <div class = "well span3">
-      <i class="icon-volume-down vol_down" title="Vol -" rel="popover"></i>&nbsp;
-      <i class="icon-volume-up vol_up" title="Vol +" rel="popover"></i>
+    <div class = "well col-sm-3">
+      <i class="glyphicon glyphicon-volume-down vol_down" title="Vol -" rel="popover"></i>&nbsp;
+      <i class="glyphicon glyphicon-volume-up vol_up" title="Vol +" rel="popover"></i>
     </div>
-    <div class = "well span3">
-      <i class="icon-list refresh_stations" title="Refresh Station list" rel="popover"></i>&nbsp;
-      <i class="icon-refresh restart_pianobar" title="Restart Pianobar" rel="popover"></i>
+    <div class = "well col-sm-3">
+      <i class="glyphicon glyphicon-list refresh_stations" title="Refresh Station list" rel="popover"></i>&nbsp;
+      <i class="glyphicon glyphicon-refresh restart_pianobar" title="Restart Pianobar" rel="popover"></i>
     </div>
   </div>
 
-  <div class="row-fluid">
-    <div class = "well span10" style = "min-height:425px">
-      <table class="table-striped table-bordered span12">
+  <div class="row">
+    <div class = "well col-sm-10" style = "min-height:425px">
+      <table class="table-striped table-bordered col-sm-12">
         <tr><td>Artist:</td><td><span id="music_artist"></span></td></tr>
         <tr><td>Album:</td><td><span id="music_album"></span></td></tr>
         <tr><td>Track:</td><td><a target="_new" href='#' id="music_link"><span id="music_track"></span></a></td></tr>
       </table>
-      <div class="span12 pagination-centered">
+      <div class="col-sm-12">
         <br/>
-        <img id="music_art" src='' style="max-height:300px"></img>
+        <img id="music_art" src='' CLASS="img-responsive" style="max-height:300px; margin: 0 auto;"></img>
       </div>
     </div>
   </div>
 </div>
 {% endblock %}
+

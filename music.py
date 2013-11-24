@@ -75,9 +75,9 @@ def volume(action):
   if app.pending_station:
       return ''
   if action == 'up':
-    send("(((((")
-  elif action == 'down':
     send(")))))")
+  elif action == 'down':
+    send("(((((")
   return "ok"
 
 @app.route('/music/station/<id>')

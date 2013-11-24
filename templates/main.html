@@ -1,29 +1,21 @@
-{% extends "bootstrap_responsive.html" %}
+{% extends "bootstrap/base.html" %}
 
-{% block body_content %}
-
-<script type="text/javascript"  src="/static/jquery.min.js"></script>
-
-<div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">Raspberry Tart</a>
-          <div class="nav-collapse">
-            <ul class="nav">
-              <li class="active"><a href="/music/">Music</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
+<div class="container">
+{% block navbar %}
+<div class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+          <a class="navbar-brand" href="#">Raspberry Tart</a>
       </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/music/">Music</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
     </div>
+</div>
+{% endblock %}
 
-    <div class="row-fluid span12">
 {% block content %}
 {% endblock %}
-    </div>
-{% endblock %}
+</div>
+
